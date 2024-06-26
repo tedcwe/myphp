@@ -1,9 +1,29 @@
-CREATE TABLE `attendance` (
-    `id` INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    `name` VARCHAR(255) NOT NULL,
-    `attendance` VARCHAR(10) NOT NULL
-);
-
-
-GRANT ALL PRIVILEGES ON id22368963_students.* TO 'id22368963_tahfeez'@'%';
+mysql -u root -p
+CREATE DATABASE students CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER 'tahfeez'@'localhost' IDENTIFIED BY 'Tahfeez_Shaheed@@2030';
+GRANT ALL PRIVILEGES ON students.* TO 'tahfeez'@'localhost';
 FLUSH PRIVILEGES;
+
+
+
+mysql -u tahfeez -p
+
+USE students;
+
+CREATE TABLE attendance (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    date DATE NOT NULL,
+    status ENUM('حضر', 'غائب') NOT NULL,
+    photo VARCHAR(255) NULL
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+
+
+GRANT ALL PRIVILEGES ON id22368963_students.* TO 'tahfeez'@'%';
+FLUSH PRIVILEGES;
+GRANT ALL PRIVILEGES ON *.* TO 'tahfeez'@'%';
+FLUSH PRIVILEGES;
+
+CREATE USER 'tahfeez'@'%' IDENTIFIED BY 'Tahfeez_Shaheed@@2030';
+SHOW GRANTS FOR 'tahfeez'@'%';
