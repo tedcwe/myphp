@@ -26,7 +26,6 @@ $date = date('Y-m-d');
 <body>
     <div class="container">
         <h1>تسجيل حضور الطلاب - <?php echo $date; ?></h1>
-        <a href="register_student.php">تسجيل طالب جديد</a>
         <form action="register.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="date" value="<?php echo $date; ?>">
             <table>
